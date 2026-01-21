@@ -34,7 +34,7 @@ export default function Page() {
             <img
               src="/piek-logo.png"
               alt="PIEK"
-              className="h-14 w-auto drop-shadow-[0_0_25px_rgba(255,255,255,0.22)] sm:h-16 md:h-20"
+              className="h-40 w-auto drop-shadow-[0_0_25px_rgba(255,255,255,0.22)] sm:h-16 md:h-20"
             />
           </a>
 
