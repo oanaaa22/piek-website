@@ -34,7 +34,7 @@ export default function Page() {
             <img
               src="/piek-logo.png"
               alt="PIEK"
-              className="h-40 w-auto drop-shadow-[0_0_25px_rgba(255,255,255,0.22)] sm:h-16 md:h-20"
+             className="h-50 w-auto drop-shadow-[0_0_35px_rgba(255,255,255,0.28)] sm:h-40 md:h-39 lg:h-43"
             />
           </a>
 
@@ -223,9 +223,8 @@ export default function Page() {
                 </span>
               </h3>
               <p className="mt-2 text-white/70">
-                Upload 6 square images to <span className="text-white/85">/public/gallery/</span> named{" "}
-                <span className="font-mono text-white/85">img_1.png</span> …{" "}
-                <span className="font-mono text-white/85">img_6.png</span>.
+          
+              <span className="font-mono text-white/85">img_6.png</span>.
               </p>
             </div>
 
