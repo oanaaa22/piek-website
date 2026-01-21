@@ -1,3 +1,4 @@
+// app/page.tsx
 import Image from "next/image";
 import Button from "@/components/Button";
 import CopyField from "@/components/CopyField";
@@ -7,217 +8,330 @@ const LINKS = {
   chart: "https://dexscreener.com/ethereum/0x8cfdea60183543831d0fd90ecda05e32f9c7548d",
   x: "https://x.com/PIEKcto",
   telegram: "https://t.me/PIEK_CTO",
-  // You didn't provide Discord. Leave empty and the UI will hide it automatically.
-  discord: "",
+  discord: "", // optional
 };
 
 const CONTRACT = "0x93553e5eb4538B5311EfBdB2227a31026306aFA6";
 
 export default function Page() {
   return (
-    <main className="relative min-h-screen overflow-hidden">
+    <main className="relative min-h-screen overflow-hidden bg-black text-white">
       {/* Background */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(120,255,220,.10),transparent_45%),radial-gradient(circle_at_80%_20%,rgba(130,160,255,.12),transparent_50%),radial-gradient(circle_at_50%_85%,rgba(255,255,255,.06),transparent_55%)]" />
-      <div className="pointer-events-none absolute inset-0 opacity-40 [background-image:url('/stars.jpg')] bg-cover bg-center" />
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(120,255,220,.10),transparent_45%),radial-gradient(circle_at_80%_20%,rgba(130,160,255,.12),transparent_50%),radial-gradient(circle_at_50%_85%,rgba(255,255,255,.06),transparent_55%)]" />
+        <div className="absolute inset-0 opacity-40 [background-image:url('/stars.jpg')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/55 to-black" />
+      </div>
 
       {/* Top Nav */}
-      <header className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-5">
-        <div className="flex items-center gap-3">
-          <a href="#top" className="inline-flex items-center">
+      <header className="relative z-10 border-b border-white/10 bg-black/20 backdrop-blur">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-5">
+          <a href="#top" className="flex items-center gap-3">
             <img src="/piek-logo.png" alt="PIEK" className="h-10 w-auto" />
+            <span className="hidden rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/10 sm:inline">
+              Ethereum • YEE Beta
+            </span>
           </a>
 
-          <span className="hidden rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 sm:inline">
-            Ethereum • YEE Beta
-          </span>
+          <nav className="hidden items-center gap-8 md:flex">
+            <a
+              href="#about"
+              className="text-base font-semibold tracking-wide text-white/80 hover:text-white"
+            >
+              About
+            </a>
+            <a
+              href="#tokenomics"
+              className="text-base font-semibold tracking-wide text-white/80 hover:text-white"
+            >
+              Tokenomics
+            </a>
+            <a
+              href="#roadmap"
+              className="text-base font-semibold tracking-wide text-white/80 hover:text-white"
+            >
+              Roadmap
+            </a>
+            <a
+              href="#community"
+              className="text-base font-semibold tracking-wide text-white/80 hover:text-white"
+            >
+              Community
+            </a>
+          </nav>
+
+          <div className="flex items-center gap-3">
+            <Button href={LINKS.chart} className="hidden px-4 py-2 md:inline-flex" variant="secondary">
+              Chart
+            </Button>
+            <Button href={LINKS.buy} className="px-4 py-2" variant="primary">
+              Buy PIEK →
+            </Button>
+          </div>
         </div>
-
-        <nav className="hidden items-center gap-6 text-sm text-white/80 md:flex">
-          <a href="#about" className="hover:text-white">
-            About
-          </a>
-          <a href="#tokenomics" className="hover:text-white">
-            Tokenomics
-          </a>
-          <a href="#roadmap" className="hover:text-white">
-            Roadmap
-          </a>
-          <a href="#community" className="hover:text-white">
-            Community
-          </a>
-        </nav>
-
-        <Button href={LINKS.buy} className="px-4 py-2" variant="secondary">
-          Buy PIEK →
-        </Button>
       </header>
 
       {/* Hero */}
-      <section
-        id="top"
-        className="relative z-10 mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-6 pb-14 pt-6 md:grid-cols-2"
-      >
-        <div>
-          {/* Use the logo as the hero title for a premium look */}
-          <div className="mb-3">
-            <img src="/piek-logo.png" alt="PIEK" className="h-16 w-auto" />
-          </div>
+      <section id="top" className="relative z-10">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 pb-14 pt-10 md:grid-cols-2">
+          <div>
+            <div className="inline-flex items-center rounded-2xl bg-white/5 px-4 py-2 ring-1 ring-white/10 backdrop-blur">
+              <span className="text-xs font-semibold tracking-widest text-white/80">
+                THE SAGE COMPANION OF YEE
+              </span>
+            </div>
 
-          <p className="mt-2 text-lg text-white/80">The Sage Companion of YEE</p>
+            <div className="mt-5">
+              <img src="/piek-logo.png" alt="PIEK" className="h-20 w-auto" />
+            </div>
 
-          <div className="mt-7 flex flex-wrap items-center gap-3">
-            <Button href={LINKS.buy} variant="primary">
-              Buy PIEK
-            </Button>
-            <Button href={LINKS.chart} variant="secondary">
-              Chart
-            </Button>
-          </div>
+            <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/75">
+              PIEK is the lovable, rhyming Ankylosaurus from the Yee meme of old — the calm center of the
+              universe. When attention rotates, betas move fastest.
+            </p>
 
-          {/* Quick Facts */}
-          <div className="mt-8 grid gap-3 rounded-2xl bg-white/8 p-4 ring-1 ring-white/15 backdrop-blur">
-            <CopyField label="Network" value="Ethereum" />
-            <CopyField label="DEX" value="Uniswap" />
-            <CopyField label="Contract" value={CONTRACT} mono />
-          </div>
-
-          <div className="mt-5 flex items-center gap-4 text-white/70">
-            <a href={LINKS.x} className="hover:text-white" target="_blank" rel="noreferrer">
-              X
-            </a>
-            <a href={LINKS.telegram} className="hover:text-white" target="_blank" rel="noreferrer">
-              Telegram
-            </a>
-            {LINKS.discord ? (
-              <a href={LINKS.discord} className="hover:text-white" target="_blank" rel="noreferrer">
-                Discord
+            <div className="mt-7 flex flex-wrap items-center gap-3">
+              <Button href={LINKS.buy} variant="primary">
+                Buy PIEK
+              </Button>
+              <Button href={LINKS.chart} variant="secondary">
+                View Chart
+              </Button>
+              <a
+                href="#about"
+                className="rounded-xl bg-white/5 px-5 py-3 text-sm font-semibold text-white/80 ring-1 ring-white/10 backdrop-blur hover:bg-white/10 hover:text-white"
+              >
+                Read the story
               </a>
-            ) : null}
-          </div>
-        </div>
+            </div>
 
-        <div className="relative">
-          <div className="absolute -inset-6 rounded-[32px] bg-white/5 blur-2xl" />
-          <div className="relative overflow-hidden rounded-[28px] bg-white/5 ring-1 ring-white/10">
-            <Image
-              src="/piek-hero.jpg"
-              alt="PIEK"
-              width={1400}
-              height={1000}
-              className="h-auto w-full"
-              priority
-            />
+            <div className="mt-8 grid gap-3 rounded-2xl bg-white/6 p-4 ring-1 ring-white/12 backdrop-blur">
+              <CopyField label="Network" value="Ethereum" />
+              <CopyField label="DEX" value="Uniswap" />
+              <CopyField label="Contract" value={CONTRACT} mono />
+            </div>
+
+            <div className="mt-5 flex items-center gap-4 text-white/70">
+              <a href={LINKS.x} target="_blank" rel="noreferrer" className="hover:text-white">
+                X
+              </a>
+              <a href={LINKS.telegram} target="_blank" rel="noreferrer" className="hover:text-white">
+                Telegram
+              </a>
+              {LINKS.discord ? (
+                <a href={LINKS.discord} target="_blank" rel="noreferrer" className="hover:text-white">
+                  Discord
+                </a>
+              ) : null}
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="absolute -inset-6 rounded-[36px] bg-white/5 blur-2xl" />
+            <div className="relative overflow-hidden rounded-[28px] bg-white/5 ring-1 ring-white/10">
+              <Image
+                src="/piek-hero.jpg"
+                alt="PIEK hero"
+                width={1600}
+                height={1200}
+                className="h-auto w-full"
+                priority
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Story */}
-      <section id="about" className="relative z-10 mx-auto max-w-6xl px-6 pb-14">
-        <div className="grid grid-cols-1 gap-10 rounded-[28px] bg-white/6 p-8 ring-1 ring-white/12 backdrop-blur md:grid-cols-2">
-          <div>
-            <h2 className="text-3xl font-semibold tracking-tight">
-              PIEK — The Sage Companion of YEE
-            </h2>
+      {/* About / Story */}
+      <section id="about" className="relative z-10 mx-auto max-w-7xl px-6 pb-14">
+        <div className="rounded-[32px] bg-white/6 p-8 ring-1 ring-white/12 backdrop-blur">
+          <div className="mb-7 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+            <div>
+              <h2 className="text-4xl font-semibold tracking-tight">
+                PIEK <span className="text-white/60">— The Sage Companion of YEE</span>
+              </h2>
+              <p className="mt-2 max-w-2xl text-white/70">
+                He’s been here before. He rhymes. He says “Pa”. He’s canon.
+              </p>
+            </div>
 
-            <p className="mt-4 text-white/80">PIEK is not new. He’s been here before.</p>
-
-            <p className="mt-4 text-white/75 leading-relaxed">
-              PIEK is the best friend of YEE — a beloved side character from the original Yee meme era.
-              He’s lovable, gentle, and impossible not to smile at. Known for his endearing habit of rhyming,
-              and his “Pa” noise — the loveliest sound.
-            </p>
-
-            <p className="mt-4 text-white/75 leading-relaxed">
-              A very accurate Ankylosaurus: soft ears, giant mouth, and a lion tail.
-            </p>
-
-            <div className="mt-6 rounded-2xl bg-black/30 p-4 ring-1 ring-white/10">
-              <div className="text-sm text-white/70">The memecoin succession</div>
-              <div className="mt-2 text-2xl font-semibold tracking-tight">
-                $DOGE → $PEPE → $YEE → $PIEK
-              </div>
-              <div className="mt-2 text-sm text-white/70">
-                DOGE started it. PEPE went nuclear. YEE started the next chapter — and betas rip after the main coin runs.
-                There would be no $YEE without $PIEK.
-              </div>
+            <div className="flex flex-wrap gap-2">
+              <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/10">
+                Canon character
+              </span>
+              <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/10">
+                YEE Beta
+              </span>
+              <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/10">
+                Culture rotation
+              </span>
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10">
-            <Image
-              src="/piek-story.jpg"
-              alt="PIEK & friend"
-              width={1600}
-              height={1000}
-              className="h-full w-full object-cover"
-            />
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+            <div className="space-y-4 text-white/75">
+              <p className="text-lg text-white/85">PIEK is not new. He’s been here before.</p>
+
+              <p className="leading-relaxed">
+                PIEK is the best friend of YEE — a beloved side character from the original Yee meme era.
+                He’s lovable, gentle, and impossible not to smile at. Known for his endearing habit of
+                rhyming, and his “Pa” noise — the loveliest sound.
+              </p>
+
+              <p className="leading-relaxed">
+                A very accurate Ankylosaurus: soft ears, giant mouth, and a lion tail.
+              </p>
+
+              <div className="mt-6 rounded-2xl bg-black/30 p-5 ring-1 ring-white/10">
+                <div className="text-sm text-white/70">The memecoin trilogy</div>
+                <div className="mt-2 text-2xl font-semibold tracking-tight">
+                  $DOGE → $PEPE → $YEE
+                </div>
+                <div className="mt-3 text-sm leading-relaxed text-white/70">
+                  DOGE was the original meme coin. PEPE showed culture + timing can go nuclear.
+                  Now YEE is the next chapter — and betas rip after the main coin runs.
+                  <span className="text-white/85"> There would be no YEE without PIEK.</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10">
+              {/* NEW STORY IMAGE */}
+              <Image
+                src="/piek-story.png"
+                alt="PIEK story"
+                width={1600}
+                height={1200}
+                className="h-full w-full object-cover"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery (middle punchy showcase) */}
+      <section id="gallery" className="relative z-10 mx-auto max-w-7xl px-6 pb-14">
+        <div className="rounded-[32px] bg-white/6 p-8 ring-1 ring-white/12 backdrop-blur">
+          <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+            <div>
+              <h3 className="text-3xl font-semibold tracking-tight">Gallery</h3>
+              <p className="mt-2 text-white/70">
+                Drop your best PIEK art here — it makes the whole site feel alive.
+              </p>
+            </div>
+            <a
+              href={LINKS.x}
+              target="_blank"
+              rel="noreferrer"
+              className="text-sm font-semibold text-white/70 hover:text-white"
+            >
+              Tag us on X →
+            </a>
+          </div>
+
+          <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { src: "/piek-hero.jpg", alt: "PIEK hero" },
+              { src: "/piek-story.png", alt: "PIEK story" },
+              { src: "/piek-rotation.jpg", alt: "PIEK rotation" },
+            ].map((img) => (
+              <a
+                key={img.src}
+                href={img.src}
+                target="_blank"
+                rel="noreferrer"
+                className="group relative overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10 transition hover:ring-white/20"
+              >
+                <div className="pointer-events-none absolute -inset-10 opacity-0 blur-2xl transition group-hover:opacity-100 bg-[radial-gradient(circle_at_30%_20%,rgba(120,255,220,.18),transparent_55%),radial-gradient(circle_at_80%_30%,rgba(130,160,255,.18),transparent_55%)]" />
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  width={1600}
+                  height={1000}
+                  className="h-56 w-full object-cover transition duration-500 group-hover:scale-[1.03] sm:h-60"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-4">
+                  <div className="text-sm font-semibold text-white/90">PIEK</div>
+                  <div className="text-xs text-white/65">Open in full size</div>
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Tokenomics */}
-      <section id="tokenomics" className="relative z-10 mx-auto max-w-6xl px-6 pb-14">
-        <div className="rounded-[28px] bg-white/6 p-8 ring-1 ring-white/12 backdrop-blur">
-          <h3 className="text-3xl font-semibold tracking-tight">Tokenomics</h3>
+      <section id="tokenomics" className="relative z-10 mx-auto max-w-7xl px-6 pb-14">
+        <div className="rounded-[32px] bg-white/6 p-8 ring-1 ring-white/12 backdrop-blur">
+          <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+            <div>
+              <h3 className="text-4xl font-semibold tracking-tight">Tokenomics</h3>
+              <p className="mt-2 text-white/70">Simple, clean, and easy to understand.</p>
+            </div>
+            <Button href={LINKS.buy} variant="secondary" className="px-5 py-2">
+              Buy PIEK
+            </Button>
+          </div>
 
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
-            <Card title="Total Supply" value="1,000,000,000" />
-            <Card title="Tax" value="0%" />
-            <Card title="DEX" value="Uniswap" />
+          <div className="mt-7 grid gap-4 md:grid-cols-3">
+            <StatCard title="Total Supply" value="1,000,000,000" sub="Fixed supply" />
+            <StatCard title="Tax" value="0%" sub="No buy/sell tax" />
+            <StatCard title="DEX" value="Uniswap" sub="Ethereum mainnet" />
+          </div>
+
+          <div className="mt-6 rounded-2xl bg-black/30 p-5 ring-1 ring-white/10">
+            <div className="text-sm text-white/70">Contract</div>
+            <div className="mt-2">
+              <CopyField label="CA" value={CONTRACT} mono />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Attention Rotation */}
-      <section id="chart" className="relative z-10 mx-auto max-w-6xl px-6 pb-20">
-        <div className="grid grid-cols-1 gap-10 rounded-[28px] bg-white/6 p-8 ring-1 ring-white/12 backdrop-blur md:grid-cols-2">
-          <div>
-            <h3 className="text-3xl font-semibold tracking-tight">
-              The main coin runs. <br /> Then the betas absolutely rip.
-            </h3>
-
-            <ul className="mt-5 space-y-3 text-white/75">
-              <li>• PEPE betas doing 50× – 100×+</li>
-              <li>• Side characters outperform once attention shifts</li>
-              <li>• Culture expands outward, not upward</li>
-            </ul>
-
-            <p className="mt-6 text-white/80 leading-relaxed">PIEK is the best beta to YEE.</p>
-
-            <p className="mt-5 font-semibold text-white">
-              Once YEE gets louder, people will ask: <br />
-              “what’s the cheaper YEE play?” <br />
-              <span className="text-emerald-200">That’s where PIEK comes in.</span>
-            </p>
-
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Button href={LINKS.chart} variant="secondary">
-                View Chart
-              </Button>
-              <Button href={LINKS.buy} variant="primary">
-                Buy PIEK
-              </Button>
+      {/* Roadmap */}
+      <section id="roadmap" className="relative z-10 mx-auto max-w-7xl px-6 pb-20">
+        <div className="rounded-[32px] bg-white/6 p-8 ring-1 ring-white/12 backdrop-blur">
+          <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+            <div>
+              <h3 className="text-4xl font-semibold tracking-tight">Roadmap</h3>
+              <p className="mt-2 text-white/70">Clean milestones. No filler.</p>
             </div>
+            <Button href={LINKS.chart} variant="secondary" className="px-5 py-2">
+              Track Momentum
+            </Button>
           </div>
 
-          <div className="relative overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10">
-            <Image
-              src="/piek-rotation.jpg"
-              alt="PIEK on the moon"
-              width={1600}
-              height={1000}
-              className="h-full w-full object-cover"
+          <div className="mt-7 grid gap-4 md:grid-cols-3">
+            <StepCard
+              step="Phase 1"
+              title="Launch & canon"
+              items={["Website + brand", "Liquidity live", "Community channels"]}
+            />
+            <StepCard
+              step="Phase 2"
+              title="Attention rotation"
+              items={["Memes + story arcs", "Collabs with YEE ecosystem", "Gallery expansion"]}
+            />
+            <StepCard
+              step="Phase 3"
+              title="PIEK era"
+              items={["Bigger media moments", "Creator tools + assets", "Long-run community growth"]}
             />
           </div>
         </div>
       </section>
 
-      {/* Footer */}
+      {/* Footer / Community */}
       <footer id="community" className="relative z-10 border-t border-white/10 bg-black/30">
-        <div className="mx-auto max-w-6xl px-6 py-10 text-sm text-white/60">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <div>© {new Date().getFullYear()} PIEK</div>
-            <div className="flex gap-4">
+        <div className="mx-auto max-w-7xl px-6 py-10">
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div className="flex items-center gap-3">
+              <img src="/piek-logo.png" alt="PIEK" className="h-9 w-auto" />
+              <div className="text-sm text-white/60">The Sage Ethereum of YEE</div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-4 text-sm text-white/70">
               <a className="hover:text-white" href={LINKS.x} target="_blank" rel="noreferrer">
                 X
               </a>
@@ -229,21 +343,51 @@ export default function Page() {
                   Discord
                 </a>
               ) : null}
+              <a className="hover:text-white" href={LINKS.chart} target="_blank" rel="noreferrer">
+                Chart
+              </a>
             </div>
           </div>
 
-          <p className="mt-4 text-white/50">Not financial advice. Meme token. DYOR.</p>
+          <div className="mt-8 text-xs text-white/50">
+            Not financial advice. Meme token. DYOR.
+          </div>
         </div>
       </footer>
     </main>
   );
 }
 
-function Card({ title, value }: { title: string; value: string }) {
+function StatCard({ title, value, sub }: { title: string; value: string; sub: string }) {
   return (
-    <div className="rounded-2xl bg-black/30 p-4 ring-1 ring-white/10">
+    <div className="rounded-2xl bg-black/30 p-5 ring-1 ring-white/10">
       <div className="text-sm text-white/70">{title}</div>
-      <div className="mt-2 text-2xl font-semibold tracking-tight">{value}</div>
+      <div className="mt-2 text-3xl font-semibold tracking-tight">{value}</div>
+      <div className="mt-2 text-sm text-white/60">{sub}</div>
+    </div>
+  );
+}
+
+function StepCard({
+  step,
+  title,
+  items,
+}: {
+  step: string;
+  title: string;
+  items: string[];
+}) {
+  return (
+    <div className="rounded-2xl bg-black/30 p-5 ring-1 ring-white/10">
+      <div className="inline-flex rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/10">
+        {step}
+      </div>
+      <div className="mt-3 text-xl font-semibold tracking-tight">{title}</div>
+      <ul className="mt-3 space-y-2 text-sm text-white/70">
+        {items.map((t) => (
+          <li key={t}>• {t}</li>
+        ))}
+      </ul>
     </div>
   );
 }
