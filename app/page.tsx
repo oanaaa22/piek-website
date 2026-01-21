@@ -3,11 +3,10 @@ import Button from "@/components/Button";
 import CopyField from "@/components/CopyField";
 
 const LINKS = {
-  buy: "https://app.uniswap.org/",
-  chart: "#chart",
-  x: "#",
-  telegram: "#",
-  discord: "#",
+  buy: "https://dexscreener.com/ethereum/0x8cfdea60183543831d0fd90ecda05e32f9c7548d",
+  chart: "https://dexscreener.com/ethereum/0x8cfdea60183543831d0fd90ecda05e32f9c7548d",
+  x: "https://x.com/PIEKcto",
+  telegram: "https://t.me/PIEK_CTO",
 };
 
 export default function Page() {
@@ -20,7 +19,12 @@ export default function Page() {
       {/* Top Nav */}
       <header className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-5">
         <div className="flex items-center gap-3">
-          <span className="text-2xl font-semibold tracking-tight">piek</span>
+         <img
+  src="/piek-logo.png"
+  alt="PIEK"
+  className="h-10 w-auto"
+/>
+
           <span className="hidden rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 sm:inline">
             Ethereum • YEE Beta
           </span>
@@ -67,7 +71,7 @@ export default function Page() {
           <div className="mt-8 grid gap-3 rounded-2xl bg-white/8 p-4 shadow-glow ring-1 ring-white/15 backdrop-blur">
             <CopyField label="Network" value="Ethereum" />
             <CopyField label="DEX" value="Uniswap" />
-            <CopyField label="Contract" value="0xYOUR_CONTRACT_ADDRESS" mono />
+            <CopyField label="Contract" value="0x93553e5eb4538B5311EfBdB2227a31026306aFA6" mono />
           </div>
 
           <div className="mt-5 flex items-center gap-4 text-white/70">
@@ -119,12 +123,12 @@ export default function Page() {
             </p>
 
             <div className="mt-6 rounded-2xl bg-black/30 p-4 ring-1 ring-white/10">
-              <div className="text-sm text-white/70">The memecoin trilogy</div>
+              <div className="text-sm text-white/70">The memecoin succession</div>
               <div className="mt-2 text-2xl font-semibold tracking-tight">
-                $DOGE → $PEPE → $YEE
+                $DOGE → $PEPE → $YEE → $PIEK
               </div>
               <div className="mt-2 text-sm text-white/70">
-                DOGE started it. PEPE went nuclear. YEE is the next chapter — and betas rip after the main coin runs.
+                DOGE started it. PEPE went nuclear. YEE started the next chapter — and betas rip after the main coin runs. There would be no $YEE without $PIEK
               </div>
             </div>
           </div>
@@ -151,7 +155,7 @@ export default function Page() {
             <Card title="DEX" value="Uniswap" />
           </div>
           <p className="mt-5 text-white/70">
-            Replace the numbers above in <span className="font-mono text-white/90">app/page.tsx</span>.
+      
           </p>
         </div>
       </section>
@@ -171,7 +175,7 @@ export default function Page() {
             </ul>
 
             <p className="mt-6 text-white/80 leading-relaxed">
-              PIEK is my favorite beta to YEE. Right now, you don’t need a miracle for a 10× — just attention rotation.
+              PIEK is the best beta to YEE. 
             </p>
 
             <p className="mt-5 font-semibold text-white">
