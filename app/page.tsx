@@ -12,19 +12,14 @@ const LINKS = {
 
 const CONTRACT = "0x93553e5eb4538B5311EfBdB2227a31026306aFA6";
 
-// Your EXACT current filenames (including .JPG and the one with a space).
-// The one with a space is URL-encoded as %20 so it loads correctly.
 const GALLERY = [
   { src: "/IMG_0005.jpg", label: "IMG_0005.jpg" },
   { src: "/IMG_0013.jpg", label: "IMG_0013.jpg" },
   { src: "/IMG_0018.jpg", label: "IMG_0018.jpg" },
-  { src: "/IMG_9847%202.jpg", label: "IMG_9847 2.jpg" }, // space encoded
+  { src: "/IMG_9847%202.jpg", label: "IMG_9847 2.jpg" },
   { src: "/IMG_9921.jpg", label: "IMG_9921.jpg" },
-  { src: "/IMG_9930.JPG", label: "IMG_9930.JPG" }, // keep case
+  { src: "/IMG_9930.JPG", label: "IMG_9930.JPG" },
 ];
-
-// optional spare you might want later
-const SPARE = "/IMG_9943.jpg";
 
 function shortCA(addr: string) {
   if (!addr) return "";
@@ -35,7 +30,6 @@ export default function Page() {
   const [copied, setCopied] = useState(false);
 
   const dexscreenerEmbed = useMemo(() => {
-    // Dexscreener supports embed=1 and theme=dark on most pairs.
     return "https://dexscreener.com/ethereum/0x8cfdea60183543831d0fd90ecda05e32f9c7548d?embed=1&theme=dark";
   }, []);
 
@@ -45,30 +39,23 @@ export default function Page() {
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1200);
     } catch {
-      // fallback: no-op
+      // no-op
     }
   }
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-black text-white">
-      {/* ===== BACKDROP (designer) ===== */}
       <div className="pointer-events-none absolute inset-0">
-        {/* star texture */}
         <div className="absolute inset-0 opacity-45 bg-[url('/stars.jpg')] bg-cover bg-center" />
-        {/* aurora gradients */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,rgba(34,211,238,0.18),transparent_45%),radial-gradient(circle_at_90%_20%,rgba(16,185,129,0.16),transparent_50%),radial-gradient(circle_at_45%_95%,rgba(168,85,247,0.16),transparent_55%)]" />
-        {/* vignette */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/55 to-black" />
-        {/* subtle grain */}
         <div className="absolute inset-0 opacity-[0.06] [background-image:radial-gradient(circle,white_1px,transparent_1px)] [background-size:18px_18px]" />
       </div>
 
-      {/* ===== NAV ===== */}
       <header className="relative z-10">
         <div className="mx-auto max-w-7xl px-6 pt-6">
           <div className="flex items-center justify-between rounded-[28px] bg-white/5 px-5 py-4 ring-1 ring-white/10 backdrop-blur">
             <a href="#top" className="flex items-center gap-4">
-              {/* HUGE logo left corner */}
               <img
                 src="/piek-logo.png"
                 alt="PIEK"
@@ -123,7 +110,6 @@ export default function Page() {
         </div>
       </header>
 
-      {/* ===== HERO ===== */}
       <section id="top" className="relative z-10">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 pb-16 pt-10 md:grid-cols-2">
           <div>
@@ -144,10 +130,10 @@ export default function Page() {
             </h1>
 
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/72">
-              DOGE was the original internet meme coin. PEPE proved culture + timing can go nuclear.
-              Now <span className="text-white/90 font-semibold">YEE</span> is the next chapter — and when YEE runs,
-              people hunt the cheaper play.
-              <span className="text-white/90 font-semibold"> That’s PIEK.</span>
+              DOGE was the original internet meme coin. PEPE proved culture + timing can go nuclear. Now{" "}
+              <span className="text-white/90 font-semibold">YEE</span> is the next chapter — and when YEE runs,
+              people hunt the cheaper play.{" "}
+              <span className="text-white/90 font-semibold">That’s PIEK.</span>
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -175,12 +161,12 @@ export default function Page() {
               </a>
             </div>
 
-            {/* Token / CA card */}
             <div className="mt-10 grid gap-3 rounded-[26px] bg-white/6 p-5 ring-1 ring-white/12 backdrop-blur">
               <div className="flex items-center justify-between">
                 <div className="text-sm text-white/60">Network</div>
                 <div className="text-sm font-semibold text-white/90">Ethereum</div>
               </div>
+
               <div className="flex items-center justify-between">
                 <div className="text-sm text-white/60">DEX</div>
                 <div className="text-sm font-semibold text-white/90">Uniswap</div>
@@ -217,7 +203,6 @@ export default function Page() {
             </div>
           </div>
 
-          {/* Hero image */}
           <div className="relative">
             <div className="absolute -inset-10 rounded-[44px] bg-[radial-gradient(circle_at_25%_25%,rgba(34,211,238,.22),transparent_55%),radial-gradient(circle_at_80%_30%,rgba(16,185,129,.18),transparent_55%),radial-gradient(circle_at_65%_90%,rgba(168,85,247,.18),transparent_55%)] blur-2xl" />
             <div className="relative overflow-hidden rounded-[34px] bg-white/5 ring-1 ring-white/12">
@@ -235,7 +220,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== ABOUT / STORY ===== */}
       <section id="about" className="relative z-10 mx-auto max-w-7xl px-6 pb-14">
         <div className="rounded-[36px] bg-white/6 p-8 ring-1 ring-white/12 backdrop-blur">
           <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
@@ -261,8 +245,8 @@ export default function Page() {
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
             <div className="space-y-5 text-white/75">
               <p className="text-lg text-white/88">
-                Peek is a loveable character who has an endearing habit of rhyming. He is beloved by all,
-                and seen in the Yee meme of old.
+                Peek is a loveable character who has an endearing habit of rhyming. He is beloved by all, and
+                seen in the Yee meme of old.
               </p>
 
               <p className="leading-relaxed">
@@ -270,9 +254,7 @@ export default function Page() {
               </p>
 
               <div className="rounded-2xl bg-black/35 p-5 ring-1 ring-white/10">
-                <div className="text-xs font-semibold tracking-widest text-white/55">
-                  THE MEMECOIN TRILOGY
-                </div>
+                <div className="text-xs font-semibold tracking-widest text-white/55">THE MEMECOIN TRILOGY</div>
                 <div className="mt-2 text-2xl font-extrabold tracking-tight">
                   <span className="bg-gradient-to-r from-emerald-200 via-cyan-200 to-violet-200 bg-clip-text text-transparent">
                     $DOGE → $PEPE → $YEE
@@ -281,43 +263,38 @@ export default function Page() {
                 <div className="mt-3 space-y-2 text-sm leading-relaxed text-white/70">
                   <div>• DOGE was the original internet meme coin.</div>
                   <div>• PEPE took it further and proved culture + timing can go nuclear.</div>
-                  <div>
-                    • Now YEE is the next chapter — same internet DNA, same meme roots, same cult potential.
-                  </div>
+                  <div>• Now YEE is the next chapter — same internet DNA, same meme roots, same cult potential.</div>
                 </div>
               </div>
 
               <div className="rounded-2xl bg-black/35 p-5 ring-1 ring-white/10">
-                <div className="text-xs font-semibold tracking-widest text-white/55">
-                  WHY PIEK
-                </div>
+                <div className="text-xs font-semibold tracking-widest text-white/55">WHY PIEK</div>
                 <div className="mt-3 space-y-2 text-sm leading-relaxed text-white/70">
                   <div>Every time this happens, it plays out the same way.</div>
                   <div className="font-semibold text-white/85">The main coin runs. Then the betas absolutely rip.</div>
                   <div>PEPE betas doing 50×–100×+. Random side characters outperform once attention shifts.</div>
-                  <div className="text-white/85 font-semibold">
-                    That’s why I’m focused on PIEK.
-                  </div>
+                  <div className="text-white/85 font-semibold">That’s why I’m focused on PIEK.</div>
                 </div>
               </div>
 
               <div className="rounded-2xl bg-gradient-to-r from-emerald-300/10 via-cyan-300/10 to-violet-300/10 p-5 ring-1 ring-white/10">
                 <div className="text-sm leading-relaxed text-white/78">
-                  ''PIEK is my favorite beta to YEE. And the best part? PIEK is still around ~100K market cap.
+                  PIEK is my favorite beta to YEE. And the best part? PIEK is still around ~100K market cap.
                 </div>
                 <div className="mt-3 text-sm leading-relaxed text-white/78">
-                  You don’t need a miracle for a 10×. You don’t need mass adoption for a 50×.
-                  You just need <span className="text-white/90 font-semibold">attention rotation</span>.
+                  You don’t need a miracle for a 10×. You don’t need mass adoption for a 50×. You just need{" "}
+                  <span className="text-white/90 font-semibold">attention rotation</span>.
                 </div>
                 <div className="mt-3 text-sm font-semibold text-white">
-                  Once YEE gets louder, people will look for: <span className="text-emerald-200">“what’s the cheaper YEE play?”</span>
+                  Once YEE gets louder, people will look for:{" "}
+                  <span className="text-emerald-200">“what’s the cheaper YEE play?”</span>
                   <br />
-                  <span className="text-emerald-200">That’s where PIEK comes in.'' - CRYPTO BLANEY</span>
+                  <span className="text-emerald-200">That’s where PIEK comes in.</span>{" "}
+                  <span className="text-white/75 font-semibold">— CRYPTO BLANEY</span>
                 </div>
               </div>
             </div>
 
-            {/* Story image (your file) */}
             <div className="relative overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10">
               <Image
                 src="/piek-story.png"
@@ -335,7 +312,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== GALLERY (your exact filenames) ===== */}
       <section id="gallery" className="relative z-10 mx-auto max-w-7xl px-6 pb-14">
         <div className="rounded-[36px] bg-white/6 p-8 ring-1 ring-white/12 backdrop-blur">
           <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
@@ -345,9 +321,7 @@ export default function Page() {
                   Gallery
                 </span>
               </h3>
-              <p className="mt-2 text-white/70">
-        
-              </p>
+              <p className="mt-2 text-white/70"></p>
             </div>
 
             <a
@@ -385,12 +359,10 @@ export default function Page() {
             ))}
           </div>
 
-          <div className="mt-5 text-xs text-white/55">
-          
+          <div className="mt-5 text-xs text-white/55"></div>
         </div>
       </section>
 
-      {/* ===== TOKENOMICS ===== */}
       <section id="tokenomics" className="relative z-10 mx-auto max-w-7xl px-6 pb-14">
         <div className="rounded-[36px] bg-white/6 p-8 ring-1 ring-white/12 backdrop-blur">
           <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
@@ -434,7 +406,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== ROADMAP ===== */}
       <section id="roadmap" className="relative z-10 mx-auto max-w-7xl px-6 pb-14">
         <div className="rounded-[36px] bg-white/6 p-8 ring-1 ring-white/12 backdrop-blur">
           <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
@@ -475,7 +446,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== DEXSCREENER EMBED ===== */}
       <section id="chart" className="relative z-10 mx-auto max-w-7xl px-6 pb-20">
         <div className="rounded-[36px] bg-white/6 p-8 ring-1 ring-white/12 backdrop-blur">
           <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
@@ -513,7 +483,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== FOOTER ===== */}
       <footer id="community" className="relative z-10 border-t border-white/10 bg-black/30">
         <div className="mx-auto max-w-7xl px-6 py-12">
           <div className="flex flex-col gap-7 md:flex-row md:items-center md:justify-between">
@@ -544,16 +513,12 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="mt-10 text-xs text-white/50">
-            Not financial advice. Meme token. DYOR.
-          </div>
+          <div className="mt-10 text-xs text-white/50">Not financial advice. Meme token. DYOR.</div>
         </div>
       </footer>
     </main>
   );
 }
-
-/* ===== UI bits ===== */
 
 function Pill({ text }: { text: string }) {
   return (
@@ -604,3 +569,4 @@ function StepCard({
     </div>
   );
 }
+
