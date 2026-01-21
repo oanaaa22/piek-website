@@ -303,7 +303,7 @@ export default function Page() {
 
               <div className="rounded-2xl bg-gradient-to-r from-emerald-300/10 via-cyan-300/10 to-violet-300/10 p-5 ring-1 ring-white/10">
                 <div className="text-sm leading-relaxed text-white/78">
-                  PIEK is my favorite beta to YEE. And the best part? PIEK is still around ~100K market cap.
+                  ''PIEK is my favorite beta to YEE. And the best part? PIEK is still around ~100K market cap.
                 </div>
                 <div className="mt-3 text-sm leading-relaxed text-white/78">
                   You don’t need a miracle for a 10×. You don’t need mass adoption for a 50×.
@@ -312,7 +312,7 @@ export default function Page() {
                 <div className="mt-3 text-sm font-semibold text-white">
                   Once YEE gets louder, people will look for: <span className="text-emerald-200">“what’s the cheaper YEE play?”</span>
                   <br />
-                  <span className="text-emerald-200">That’s where PIEK comes in.</span>
+                  <span className="text-emerald-200">That’s where PIEK comes in.'' - CRYPTO BLANEY</span>
                 </div>
               </div>
             </div>
@@ -346,7 +346,7 @@ export default function Page() {
                 </span>
               </h3>
               <p className="mt-2 text-white/70">
-                Your images. Full pop. Square grid. Hover glow.
+        
               </p>
             </div>
 
@@ -386,8 +386,7 @@ export default function Page() {
           </div>
 
           <div className="mt-5 text-xs text-white/55">
-            If one tile shows blank, it means the filename in <span className="font-mono">/public</span> doesn’t match exactly (case/spaces).
-          </div>
+          
         </div>
       </section>
 
